@@ -12,13 +12,10 @@ services:
       - "1433:1433"
     volumes:
       - ./backup:/backup
-    restart: always
+    # restart: always
     command: >
       /bin/bash -c "
-      /opt/mssql/bin/sqlservr --accept-eula & 
-      sleep 10 && 
-      wget https://github.com/Andru-1987/csv_files_ds/raw/main/Educacion.bak -O /backup/CoderHouse.bak && 
-      /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P example_123 -d master -i /backup/restore.database.sql -C
+      /opt/mssql/bin/sqlservr --accept-eula 
       "
     healthcheck:
       test: [ "CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P example_123 -Q 'SELECT 1' || exit 1" ]
