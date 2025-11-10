@@ -3,7 +3,7 @@
 
 [PRESENTACION](https://docs.google.com/presentation/d/1oGEmeVXEdhX0YwDRdvAySfWip_G3OZhW/edit?slide=id.p2#slide=id.p1)
 
-### 🔹 1. Introducción y objetivos
+### 1. Introducción y objetivos
 
 **Duración:** 5 min
 **Propósito:** contextualizar y definir los objetivos del encuentro.
@@ -19,7 +19,7 @@
 
 ---
 
-### 🔹 2. Normalización de bases de datos
+### 2. Normalización de bases de datos
 
 **Duración:** 25–30 min
 **Propósito:** introducir el diseño lógico y la eficiencia en el almacenamiento de datos.
@@ -43,7 +43,7 @@
 
 ---
 
-### 🔹 3. Diseño del modelo entidad–relación (E–R)
+### 3. Diseño del modelo entidad–relación (E–R)
 
 **Duración:** 40–45 min
 **Propósito:** aplicar la teoría de normalización a un proyecto práctico.
@@ -69,7 +69,7 @@
 
 ---
 
-### 🔹 4. Fundamentos del lenguaje SQL
+### 4. Fundamentos del lenguaje SQL
 
 **Duración:** 50–60 min
 **Propósito:** ejercitar las sentencias y operadores básicos para manipular datos.
@@ -88,7 +88,7 @@
 
 ---
 
-### 🔹 5. Sentencias comunes en SQL
+### 5. Sentencias comunes en SQL
 
 **Duración:** 40 min
 **Propósito:** aplicar consultas con filtros, orden y agrupamientos.
@@ -104,7 +104,7 @@
 
 ---
 
-### 🔹 6. Funciones escalares y subconsultas
+### 6. Funciones escalares y subconsultas
 
 **Duración:** 35–40 min
 **Propósito:** aprender transformaciones temporales de datos.
@@ -122,7 +122,7 @@
 
 ---
 
-### 🔹 7. Actividad integradora – Práctica SQL
+### 7. Actividad integradora – Práctica SQL
 
 **Duración:** 35–40 min
 **Propósito:** consolidar el aprendizaje.
@@ -137,7 +137,7 @@ Resolver consultas SQL que involucren:
 
 ---
 
-### 🔹 8. Entregable N°2 – Definición del modelo relacional
+### 8. Entregable N°2 – Definición del modelo relacional
 
 **Duración:** 20 min
 **Propósito:** preparar la documentación para el proyecto final.
