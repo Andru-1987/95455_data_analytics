@@ -1,150 +1,105 @@
-
 ## Introducción a SQL, Normalización y Consultas Básicas
 
-[PRESENTACION](https://docs.google.com/presentation/d/1oGEmeVXEdhX0YwDRdvAySfWip_G3OZhW/edit?slide=id.p2#slide=id.p1)
+[PRESENTACION](https://docs.google.com/presentation/d/1oGEmeVXEdhX0YwDRdvAySfWip_G3OZhW/edit?usp=sharing&ouid=117801297684850401127&rtpof=true&sd=true)
 
-### 1. Introducción y objetivos
+### **1. Para pensar (operadores y sintaxis básica)**
 
-**Duración:** 5 min
-**Propósito:** contextualizar y definir los objetivos del encuentro.
-**Contenidos:**
+Identifica el error en las siguientes consultas:
 
-* Qué es SQL y por qué es importante en Data Analytics.
-* Objetivos de la clase:
-
-  * Comprender la normalización.
-  * Diseñar un modelo entidad-relación.
-  * Usar sentencias y operadores básicos en SQL.
-  * Aplicar funciones escalares y subconsultas simples.
+1. Consulta con `DISTINCT`, `WHERE` y un operador incorrecto.
+2. Consulta que mezcla `GROUP BY` y `WHERE` de manera errónea.
+3. Consulta con `LIKE` y un patrón exacto.
+4. Consulta con literales de texto sin comillas.
 
 ---
 
-### 2. Normalización de bases de datos
+### **2. Actividad de repaso**
 
-**Duración:** 25–30 min
-**Propósito:** introducir el diseño lógico y la eficiencia en el almacenamiento de datos.
-**Contenidos:**
+Observa las siguientes consultas y determina **qué registros traerá cada una**:
 
-1. **Concepto de normalización**
-
-   * Evitar redundancias e inconsistencias.
-   * Beneficios para la integridad y mantenimiento.
-2. **Dependencias funcionales**
-
-   * Cómo identificarlas en un modelo.
-3. **Formas normales** (1FN, 2FN, 3FN) — breve repaso conceptual.
-4. **Ejemplo práctico de normalización**
-
-   * Mostrar un modelo con redundancia y cómo se optimiza.
-5. **Modelos de base de datos:**
-
-   * **Esquema estrella vs copo de nieve.**
-6. **Mini actividad:** identificar errores de diseño en un ejemplo dado.
+1. `SELECT * FROM Clientes`
+2. `SELECT N_Cliente, Nombre FROM Clientes`
+3. `SELECT Nombre, Sexo FROM Clientes`
+4. `SELECT N_Cliente, Telefono, ID_Edad FROM Clientes`
 
 ---
 
-### 3. Diseño del modelo entidad–relación (E–R)
+### **3. Diseño del modelo entidad–relación**
 
-**Duración:** 40–45 min
-**Propósito:** aplicar la teoría de normalización a un proyecto práctico.
-**Contenidos:**
+**Parte 1:**
+Diseña el modelo entidad–relación de la temática elegida para tu proyecto final.
+Incluye:
 
-1. Qué es un **modelo E–R**.
-2. Componentes principales:
+* Al menos 5 tablas.
+* Entidades, relaciones, tipos de relación y campos clave.
 
-   * Entidades, atributos, relaciones.
-   * Cardinalidades.
-   * Claves primarias (PK) y foráneas (FK).
-3. **Actividad 1 (parte 1):**
+**Parte 2:**
+A partir del modelo diseñado:
 
-   * Diseñar el modelo E–R de un proyecto final (mín. 5 tablas).
-   * Verificar PK, FK y relaciones.
-4. **Puesta en común.**
-5. **Actividad 2 (parte 2):**
-
-   * Crear columnas, definir tipos de datos y claves.
-6. **Puesta en común.**
-
-*(Se puede usar Mural, PowerPoint o Google Slides para el diseño visual.)*
+* Define cinco columnas por tabla.
+* Indica las claves primarias, candidatas y foráneas.
+* Especifica los tipos de datos de cada columna.
 
 ---
 
-### 4. Fundamentos del lenguaje SQL
+### **4. Ejercitando sentencias SQL**
 
-**Duración:** 50–60 min
-**Propósito:** ejercitar las sentencias y operadores básicos para manipular datos.
-**Contenidos:**
+**DISTINCT – WHERE – AS**
+Analiza qué registros traerán las siguientes consultas:
 
-1. **Sintaxis básica: SELECT y FROM.**
+1. Consulta con `SELECT DISTINCT *`.
+2. Consulta con alias (`AS`) y filtro por `ID_Edad`.
+3. Consulta con `DISTINCT`, múltiples columnas y condición numérica.
 
-   * Crear tabla de ejemplo (`Clientes`).
-   * Realizar consultas simples.
-2. **Operadores SQL**
+**ORDER BY – TOP – GROUP BY – HAVING**
+Analiza y explica los resultados de consultas que:
 
-   * Relacionales (`=`, `>`, `<`, `<>`, `LIKE`…)
-   * Lógicos (`AND`, `OR`, `NOT`)
-   * Aritméticos (`+`, `-`, `*`, `/`)
-3. **Actividad guiada:** detectar errores en consultas SQL.
-
----
-
-### 5. Sentencias comunes en SQL
-
-**Duración:** 40 min
-**Propósito:** aplicar consultas con filtros, orden y agrupamientos.
-**Contenidos:**
-
-1. **DISTINCT – WHERE – AS**
-
-   * Ejercicios prácticos en vivo.
-2. **ORDER BY – TOP – GROUP BY – HAVING**
-
-   * Ejercicios guiados con interpretación de resultados.
-3. **Mini desafío:** analizar qué devuelve cada consulta.
+1. Ordenan resultados de manera descendente.
+2. Muestran solo los primeros 3 registros.
+3. Agrupan por nombre y cuentan registros.
+4. Filtran grupos con `HAVING`.
 
 ---
 
-### 6. Funciones escalares y subconsultas
+### **5. Práctica SQL (consultas integradoras)**
 
-**Duración:** 35–40 min
-**Propósito:** aprender transformaciones temporales de datos.
-**Contenidos:**
+Cada consigna requiere decidir si usarás **WHERE**, operadores, **funciones de agregación**, **funciones escalares** o **subconsultas**:
 
-1. Qué son las **funciones escalares.**
+1. Indicar cuántos cursos y carreras tiene el área de Data.
+   Renombrar la columna como `cant_asignaturas`.
+   *(Keywords: Tipo, Área, Asignaturas)*
 
-   * Ejemplos (`UPPER`, `LOWER`, `CONCAT`, `LEN`, `AVG`, `GETDATE`, etc.)
-2. **Subconsultas básicas:**
+2. Obtener nombre, documento y teléfono de estudiantes profesionales en agronomía nacidos entre 1970 y 2000.
+   *(Keywords: Estudiantes, Profesión, FechaNacimiento)*
 
-   * Cuándo usarlas y cómo anidarlas en `WHERE` o `FROM`.
-3. **Actividad práctica:**
+3. Listar docentes que ingresaron en 2021.
+   Concatenar nombre y apellido con guion, renombrar `Nombres_Apellidos` y mostrar en mayúsculas.
+   *(Keywords: Staff, FechaIngreso, Nombre, Apellido)*
 
-   * Consultas que combinen funciones escalares y subconsultas.
+4. Indicar cantidad de encargados de docentes y de tutores.
+   Quitar la palabra “Encargado” en los registros.
+   *(Keywords: Encargado, Tipo, Encargado_ID)*
+
+5. Calcular el precio promedio de carreras y cursos por jornada, renombrar `Promedio` y ordenar de mayor a menor.
+   *(Keywords: Tipo, Jornada, Asignaturas)*
+
+6. Calcular edad de estudiantes en una nueva columna `Edad`, filtrar mayores de 18 y ordenar de menor a mayor.
+   *(Keywords: FechaNacimiento, Estudiantes)*
+
+7. Mostrar nombre, correo, camada y fecha de ingreso de staff con correos `.edu` y `DocenteID ≥ 100`.
+   *(Keywords: Staff, Correo, DocenteID)*
+
+8. Mostrar documento, domicilio, código postal y nombre de los primeros 5 estudiantes registrados.
+   *(Keywords: Documento, Estudiantes, FechaIngreso)*
 
 ---
 
-### 7. Actividad integradora – Práctica SQL
+### **6. Entregable N°2 — Definición del modelo relacional**
 
-**Duración:** 35–40 min
-**Propósito:** consolidar el aprendizaje.
-**Consignas:**
-Resolver consultas SQL que involucren:
+Prepara un documento en PDF con:
 
-* Filtros y operadores.
-* Funciones escalares.
-* Subconsultas.
-* Agrupamientos y ordenamientos.
-  *(Usar los ejercicios del documento como base, organizados del 1 al 8).*
+* Descripción general del proyecto y usuario final.
+* Listado de tablas con descripción y definición de PK y FK.
+* Columnas, tipos de datos y relaciones entre tablas.
+* Diagrama entidad–relación final.
 
----
-
-### 8. Entregable N°2 – Definición del modelo relacional
-
-**Duración:** 20 min
-**Propósito:** preparar la documentación para el proyecto final.
-**Requisitos del entregable:**
-
-* Descripción general del proyecto.
-* Listado de tablas y relaciones.
-* Definición de PK y FK.
-* Columnas y tipos de datos.
-* Diagrama E–R final.

@@ -253,12 +253,28 @@ JOIN Categories cat ON p.CategoryID = cat.CategoryID
 ORDER BY cat.CategoryName, p.ProductName;
 ```
 
+
+![Primer Ejemplo de normalizacion](./assets/normalizacion.png)
+
 ---
 
-## Resumen — por cada forma normal, qué hicimos y por qué
+## Resumen — por cada forma normal, qué hicimos y por qué + _EXTRA_
 
-* **Estado inicial (desnormalizado)**: `OrdersRaw` mezcla info de pedido, cliente y producto en la misma tabla → redundancia y anomalías.
-* **1NF**: asegurar atomicidad de celdas y filas únicas. (Si hubiera grupos repetidos los separamos en filas).
-* **2NF**: identificar PK compuesta `(OrderID, ProductID)` y eliminar columnas que dependen solo de una parte de la PK; resultado: separar `Orders`, `OrderItems`, `Customers`, `Products`.
-* **3NF**: eliminar dependencias transitivas (p. ej. `CategoryName` dependía de `ProductID` vía categoría); creamos `Categories` y referenciamos por `CategoryID`.
 
+| **Forma Normal**                    | **Qué hicimos / Qué garantiza**                                                                                                | **Por qué se aplica**                                                                       |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
+| **Estado inicial (desnormalizado)** | La tabla `OrdersRaw` mezclaba datos de pedidos, clientes y productos en una sola estructura.                                   | Generaba redundancia, inconsistencias y anomalías al actualizar o eliminar datos.           |
+| **Primera Forma Normal (1NF)**      | Aseguramos que cada celda contenga un único valor y que cada fila sea única.                                                   | Evita duplicados y estructuras no tabulares; garantiza atomicidad.                          |
+| **Segunda Forma Normal (2NF)**      | Identificamos la clave primaria compuesta `(OrderID, ProductID)` y separamos columnas que dependían solo de una parte de ella. | Elimina dependencias parciales, asegurando que cada atributo dependa de toda la clave.      |
+| **Tercera Forma Normal (3NF)**      | Quitamos dependencias transitivas (por ejemplo, `CategoryName` dependía de `ProductID` a través de `CategoryID`).              | Evita redundancia y mejora la integridad referencial entre tablas relacionadas.             |
+| **Cuarta Forma Normal (4NF)**       | Elimina dependencias multivaluadas: cada relación representa un solo hecho o tema.                                             | Previene duplicación de datos cuando una entidad tiene múltiples relaciones independientes. |
+| **Quinta Forma Normal (5NF)**       | Descompone relaciones complejas que solo pueden reconstruirse por medio de uniones de proyecciones más simples.                | Garantiza la eliminación total de redundancias derivadas de dependencias de unión.          |
+
+
+---
+**Ejemplo Adicional Visual**
+
+![3 Forma Normal](./assets/3fn_db.png)
+
+*Bibliografia*
+> [Normalizacion](https://bookdown.org/paranedagarcia/database/normalizacion.html)
