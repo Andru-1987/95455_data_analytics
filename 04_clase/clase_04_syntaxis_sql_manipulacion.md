@@ -103,3 +103,7 @@ Prepara un documento en PDF con:
 * Columnas, tipos de datos y relaciones entre tablas.
 * Diagrama entidad–relación final.
 
+
+---
+
+![Diagrama entidad relacion](./assets/image.png)
